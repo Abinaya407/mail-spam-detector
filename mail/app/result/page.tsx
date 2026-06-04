@@ -1,9 +1,10 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 
-export default function ResultPage() {
+function ResultContent() {
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -238,5 +239,12 @@ console.log("PERCENTAGE:", percentage);
       </button>
 
     </div>
+  );
+}
+export default function ResultPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ResultContent />
+    </Suspense>
   );
 }
