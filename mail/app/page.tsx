@@ -11,7 +11,7 @@ export default function Home() {
   const [senderEmail, setSenderEmail] = useState("");
   
   const detectSpam = async () => {
-
+    console.log("Button clicked");
     const response = await fetch("https://mail-spam-detector-2i1b.onrender.com/detect", {
       method: "POST",
 
