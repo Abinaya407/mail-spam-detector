@@ -1,3 +1,4 @@
+  require("dotenv").config();
 const { exec } = require("child_process");
 const Email = require("./models/Email");
 const mongoose = require("mongoose");
@@ -8,7 +9,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-mongoose.connect("mongodb+srv://abi0407naya_db_user:Abinaya2004@cluster0.bwc8kuv.mongodb.net/?appName=Cluster0")
+mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log("MongoDB Connected"))
 .catch((error) => console.log(error));
 app.post("/detect", async (req, res) => {
