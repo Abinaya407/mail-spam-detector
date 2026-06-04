@@ -14,6 +14,12 @@ app.use(express.json());
 mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log("MongoDB Connected"))
 .catch((error) => console.log(error));
+app.get("/", (req, res) => {
+  res.send("Mail Spam Detector Backend Running");
+});
+app.get("/", (req, res) => {
+  res.send("Mail Spam Detector Backend Running");
+});
 app.post("/detect", async (req, res) => {
 
   const email = req.body.email;
